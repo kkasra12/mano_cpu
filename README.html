@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+  <style media="screen">
+
+  </style>
+</head>
+<body>
+<h1 id="mano_cpu">mano_cpu</h1>
+<p>a simulation of Mano CPU in verilog</p>
+<h2 id="contents">Contents:</h2>
+<ol style="list-style-type: decimal">
+<li><b> main_file.v </b>: Is the cpu!!!<br>Its written in behavieral level using verilog language</li>
+<li><p><b> tb_minus.v </b>: Is a test bench that runs:</p>
+<pre><code>ORG 100
+LDA SUB
+CMA
+INC
+ADD MIN
+STA DIF
+HLT
+MIN, DEC 83
+MIN, DEC -23
+DIF, HEX 0
+END</code></pre></li>
+<li><p><b> tb_add.v </b>: Is a test bench that runs:</p>
+<pre><code>ORG 0
+LDA A
+ADD B
+STA C
+HLT
+A, DEC 83
+B, DEC -23
+C, HEX 0
+END</code></pre></li>
+</ol>
+<h2 id="note">NOTE:</h2>
+<ol style="list-style-type: decimal">
+<li>There is a run_code signal:</li>
+</ol>
+<ul>
+<li>if its Zero: CPU will listen to <code>code</code> and <code>address</code> signals and will write them on memory .</li>
+<li>if its One: CPU will start executing codes at <code>pc</code> location.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>All input and output signals are x in these test benchs(and its normal because we dont have any I/O), it means u should check the answer in memry list.</li>
+<li>The initial value for <b>pc</b> must be set correctly for each test bench. <b>!IMPORTANT</b></li>
+<li>There is an output signal <code>test</code> and also an always block at line 72 that can be used for debuging and showing internal register values.</li>
+</ol>
+</body>
+</html>
